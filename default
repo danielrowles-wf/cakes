@@ -1,0 +1,15 @@
+server {
+        listen 80;
+        root /usr/share/nginx/html;
+        index index.html index.htm;
+
+        location / {
+                ssi on;
+                set_by_lua $HARBOUR_SERVICE_NAME 'return os.getenv("HARBOUR_SERVICE_NAME");';
+                set_by_lua $HARBOUR_SERVICE_TAGS 'return os.getenv("HARBOUR_SERVICE_TAGS");';
+                set_by_lua $PIES 'return os.getenv("PIES");';
+                set_by_lua $CAKE 'return os.getenv("CAKE");';
+                set_by_lua $BEER 'return os.getenv("BEER");';
+                try_files $uri $uri/ /index.html;
+        }
+}

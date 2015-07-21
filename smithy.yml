@@ -1,0 +1,8 @@
+project: python
+runtime: 2.7
+
+env:
+  - LIKES=PIES
+
+script:
+  - printenv
