@@ -12,4 +12,9 @@ server {
                 set_by_lua $BEER 'return os.getenv("BEER");';
                 try_files $uri $uri/ /index.html;
         }
+
+        location /cakes {
+                 root /var/lib/cakes/;
+                 autoindex on;
+        }
 }
